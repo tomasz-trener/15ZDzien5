@@ -1,4 +1,4 @@
-﻿namespace P34AplikacjaZawodnicy
+﻿namespace P03AplikacjaZawodnicy
 {
     partial class FrmSzczegoly
     {
@@ -40,6 +40,7 @@
             this.dtpDataUr = new System.Windows.Forms.DateTimePicker();
             this.numWzrost = new System.Windows.Forms.NumericUpDown();
             this.numWaga = new System.Windows.Forms.NumericUpDown();
+            this.btnZapisz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numWzrost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             this.SuspendLayout();
@@ -130,6 +131,11 @@
             // numWzrost
             // 
             this.numWzrost.Location = new System.Drawing.Point(12, 202);
+            this.numWzrost.Maximum = new decimal(new int[] {
+            250,
+            0,
+            0,
+            0});
             this.numWzrost.Name = "numWzrost";
             this.numWzrost.Size = new System.Drawing.Size(155, 20);
             this.numWzrost.TabIndex = 13;
@@ -137,15 +143,32 @@
             // numWaga
             // 
             this.numWaga.Location = new System.Drawing.Point(12, 241);
+            this.numWaga.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.numWaga.Name = "numWaga";
             this.numWaga.Size = new System.Drawing.Size(155, 20);
             this.numWaga.TabIndex = 14;
+            // 
+            // btnZapisz
+            // 
+            this.btnZapisz.Location = new System.Drawing.Point(92, 277);
+            this.btnZapisz.Name = "btnZapisz";
+            this.btnZapisz.Size = new System.Drawing.Size(75, 23);
+            this.btnZapisz.TabIndex = 15;
+            this.btnZapisz.Text = "Zapisz";
+            this.btnZapisz.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // FrmSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(190, 283);
+            this.ClientSize = new System.Drawing.Size(190, 312);
+            this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.numWaga);
             this.Controls.Add(this.numWzrost);
             this.Controls.Add(this.dtpDataUr);
@@ -181,5 +204,6 @@
         private System.Windows.Forms.DateTimePicker dtpDataUr;
         private System.Windows.Forms.NumericUpDown numWzrost;
         private System.Windows.Forms.NumericUpDown numWaga;
+        private System.Windows.Forms.Button btnZapisz;
     }
 }

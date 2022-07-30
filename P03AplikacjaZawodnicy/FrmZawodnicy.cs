@@ -6,9 +6,24 @@ namespace P03AplikacjaZawodnicy
 {
     public partial class FrmZawodnicy : Form
     {
+        private ManagerZawodnikow mz;
+
         public FrmZawodnicy()
         {
             InitializeComponent();
+        }
+
+        public void Odswiez(Zawodnik[] zawodnicy)
+        {
+            lbDane.DisplayMember = "";
+            // kiedy ponownie binduje dane, które mają taką samą strukturę to muszę wyzerować DisplayMember
+            // jzeli tego nie zrobię to kontrolka myśli, że te dane w ogołe się nie zmieniły i
+            // nie przeprowadza ponownego bindowania danych
+
+            lbDane.DataSource = zawodnicy;
+            lbDane.DisplayMember = "WidoczneDane";
+
+            lblLicznaZaimportowanychDanych.Text = Convert.ToString(zawodnicy.Length);
         }
 
         private void btnWczytaj_Click(object sender, EventArgs e)
@@ -22,19 +37,19 @@ namespace P03AplikacjaZawodnicy
                 //foreach (var w in dane)
                 //    lbDane.Items.Add(w);
 
-                ManagerZawodnikow mz = new ManagerZawodnikow(txtKraj.Text);
+                mz = new ManagerZawodnikow(txtKraj.Text, ofd.FileName);
                 Zawodnik[] zawodnicy = mz.Wczytaj(dane);
 
-                lbDane.DataSource = zawodnicy;
-                lbDane.DisplayMember = "WidoczneDane";
-
-                lblLicznaZaimportowanychDanych.Text = Convert.ToString(zawodnicy.Length);
+                Odswiez(zawodnicy);
             }
         }
 
         private void btnSzczegoly_Click(object sender, EventArgs e)
         {
             Zawodnik zaznaczone = (Zawodnik)lbDane.SelectedItem;
+
+            FrmSzczegoly fs = new FrmSzczegoly(zaznaczone, mz, this);
+            fs.Show();
         }
     }
 }

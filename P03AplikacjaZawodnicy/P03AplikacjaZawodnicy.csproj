@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{284FF31B-769D-4870-A383-B38DED925502}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>P34AplikacjaZawodnicy</RootNamespace>
+    <RootNamespace>P03AplikacjaZawodnicy</RootNamespace>
     <AssemblyName>P03AplikacjaZawodnicy</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P03AplikacjaZawodnicy
 {
-    internal class Zawodnik
+    public class Zawodnik
     {
         //id_zawodnika;id_trenera;imie;nazwisko;kraj;data urodzenia;wzrost;waga
 
@@ -19,11 +19,19 @@ namespace P03AplikacjaZawodnicy
         public int Wzrost;
         public int Waga;
 
-        public string WidoczneDane 
-        { 
+        public string WidoczneDane
+        {
             get
             {
                 return Imie + " " + Nazwisko + " " + Kraj;
+            }
+        }
+
+        public string Wiersz
+        {
+            get
+            {
+                return $"{Id_zawodnika};{Id_trenera};{Imie};{Nazwisko};{Kraj};{DataUr.ToString("yyyy-MM-dd")};{Wzrost};{Waga}";
             }
         }
 
@@ -38,6 +46,5 @@ namespace P03AplikacjaZawodnicy
             Wzrost = Convert.ToInt32(komorki[6]);
             Waga = Convert.ToInt32(komorki[7]);
         }
-
     }
 }

@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace P03AplikacjaZawodnicy
 {
-    internal class ManagerZawodnikow
+    public class ManagerZawodnikow
     {
         private string kraj;
+        private Zawodnik[] wczytaniZawodnicy;
+        private Zawodnik[] wszyscyZawodnicy;
+        private string sciezka;
 
-        public ManagerZawodnikow(string kraj)
+        public Zawodnik[] WczytaniZawodnicy => wczytaniZawodnicy;
+
+        public ManagerZawodnikow(string kraj, string sciezka)
         {
+            this.sciezka = sciezka;
             this.kraj = kraj;
         }
 
@@ -19,6 +26,7 @@ namespace P03AplikacjaZawodnicy
         {
             // Zawodnik[] zawodnicy = new Zawodnik[wiersze.Length-1];
             List<Zawodnik> zawodnicy = new List<Zawodnik>();
+            wszyscyZawodnicy = new Zawodnik[wiersze.Length - 1];
 
             for (int i = 1; i < wiersze.Length; i++)
             {
@@ -37,9 +45,33 @@ namespace P03AplikacjaZawodnicy
                 //zawodnicy[i - 1] = z;
                 if (kraj.ToLower() == z.Kraj.ToLower())
                     zawodnicy.Add(z);
+
+                wszyscyZawodnicy[i - 1] = z;
+            }
+            wczytaniZawodnicy = zawodnicy.ToArray();
+            return wczytaniZawodnicy;
+        }
+
+        public void Edytuj(Zawodnik z)
+        {
+            for (int i = 0; i < wczytaniZawodnicy.Length; i++)
+                if (z.Id_zawodnika == wczytaniZawodnicy[i].Id_zawodnika)
+                    wczytaniZawodnicy[i] = z;
+
+            for (int i = 0; i < wszyscyZawodnicy.Length; i++)
+                if (z.Id_zawodnika == wszyscyZawodnicy[i].Id_zawodnika)
+                    wszyscyZawodnicy[i] = z;
+        }
+
+        public void Zapisz()
+        {
+            string plik = "id_zawodnika;id_trenera;imie;nazwisko;kraj;data urodzenia;wzrost;waga" + Environment.NewLine;
+            foreach (var z in wszyscyZawodnicy)
+            {
+                plik += z.Wiersz + Environment.NewLine;
             }
 
-            return zawodnicy.ToArray();
+            File.WriteAllText(sciezka, plik);
         }
     }
 }
