@@ -48,7 +48,13 @@ namespace P03AplikacjaZawodnicy
         {
             Zawodnik zaznaczone = (Zawodnik)lbDane.SelectedItem;
 
-            FrmSzczegoly fs = new FrmSzczegoly(zaznaczone, mz, this);
+            FrmSzczegoly fs = new FrmSzczegoly(mz, this, zaznaczone);
+            fs.Show();
+        }
+
+        private void btnNowy_Click(object sender, EventArgs e)
+        {
+            FrmSzczegoly fs = new FrmSzczegoly(mz, this);
             fs.Show();
         }
     }

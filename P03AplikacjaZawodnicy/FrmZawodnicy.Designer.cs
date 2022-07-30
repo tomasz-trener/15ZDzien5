@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtKraj = new System.Windows.Forms.TextBox();
             this.btnSzczegoly = new System.Windows.Forms.Button();
+            this.btnNowy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbDane
@@ -100,11 +101,22 @@
             this.btnSzczegoly.UseVisualStyleBackColor = true;
             this.btnSzczegoly.Click += new System.EventHandler(this.btnSzczegoly_Click);
             // 
+            // btnNowy
+            // 
+            this.btnNowy.Location = new System.Drawing.Point(298, 111);
+            this.btnNowy.Name = "btnNowy";
+            this.btnNowy.Size = new System.Drawing.Size(75, 23);
+            this.btnNowy.TabIndex = 7;
+            this.btnNowy.Text = "Nowy";
+            this.btnNowy.UseVisualStyleBackColor = true;
+            this.btnNowy.Click += new System.EventHandler(this.btnNowy_Click);
+            // 
             // FrmZawodnicy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 397);
+            this.Controls.Add(this.btnNowy);
             this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.txtKraj);
             this.Controls.Add(this.label2);
@@ -128,6 +140,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtKraj;
         private System.Windows.Forms.Button btnSzczegoly;
+        private System.Windows.Forms.Button btnNowy;
     }
 }
 

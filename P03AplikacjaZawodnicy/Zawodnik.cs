@@ -35,6 +35,10 @@ namespace P03AplikacjaZawodnicy
             }
         }
 
+        public Zawodnik()
+        {
+        }
+
         public Zawodnik(string[] komorki)
         {
             Id_zawodnika = Convert.ToInt32(komorki[0]);

@@ -52,6 +52,20 @@ namespace P03AplikacjaZawodnicy
             return wczytaniZawodnicy;
         }
 
+        internal void StworzNowego(Zawodnik zawodnik)
+        {
+            List<Zawodnik> wszyscyZawodnicyLista = wszyscyZawodnicy.ToList();
+            wszyscyZawodnicyLista.Add(zawodnik);
+            wszyscyZawodnicy = wszyscyZawodnicyLista.ToArray();
+
+            if (zawodnik.Kraj.ToLower() == kraj.ToLower())
+            {
+                List<Zawodnik> wczytaniZawodnicyLista = wczytaniZawodnicy.ToList();
+                wczytaniZawodnicyLista.Add(zawodnik);
+                wczytaniZawodnicy = wczytaniZawodnicyLista.ToArray();
+            }
+        }
+
         public void Edytuj(Zawodnik z)
         {
             for (int i = 0; i < wczytaniZawodnicy.Length; i++)

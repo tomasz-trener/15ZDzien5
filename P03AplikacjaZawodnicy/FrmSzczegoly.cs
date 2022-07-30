@@ -12,19 +12,28 @@ namespace P03AplikacjaZawodnicy
 {
     public partial class FrmSzczegoly : Form
     {
+        private enum TrybOkienka
+        {
+            Edycja,
+            Nowy,
+        }
+
         private Zawodnik zawodnik;
         private ManagerZawodnikow mz;
         private FrmZawodnicy frmZawodnicy;
+        private TrybOkienka trybOkienka => zawodnik == null ? TrybOkienka.Nowy : TrybOkienka.Edycja;
 
-        public FrmSzczegoly(Zawodnik zawodnik, ManagerZawodnikow mz, FrmZawodnicy frmZawodnicy)
-
+        public FrmSzczegoly(ManagerZawodnikow mz, FrmZawodnicy frmZawodnicy)
         {
             InitializeComponent();
-
-            this.zawodnik = zawodnik;
             this.mz = mz;
             this.frmZawodnicy = frmZawodnicy;
+        }
 
+        public FrmSzczegoly(ManagerZawodnikow mz, FrmZawodnicy frmZawodnicy, Zawodnik zawodnik) : this(mz, frmZawodnicy)
+
+        {
+            this.zawodnik = zawodnik;
             txtImie.Text = zawodnik.Imie;
             txtNazwisko.Text = zawodnik.Nazwisko;
             txtKraj.Text = zawodnik.Kraj;
@@ -35,17 +44,34 @@ namespace P03AplikacjaZawodnicy
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
+            if (trybOkienka == TrybOkienka.Edycja)
+            {
+                uzupelnijPola();
+
+                mz.Edytuj(zawodnik);
+            }
+            else if (trybOkienka == TrybOkienka.Nowy)
+            {
+                zawodnik = new Zawodnik();
+                uzupelnijPola();
+                mz.StworzNowego(zawodnik);
+            }
+            else
+                throw new Exception("Nieznany tryb okienka");
+
+            mz.Zapisz();
+
+            frmZawodnicy.Odswiez(mz.WczytaniZawodnicy);
+        }
+
+        private void uzupelnijPola()
+        {
             zawodnik.Imie = txtImie.Text;
             zawodnik.Nazwisko = txtNazwisko.Text;
             zawodnik.Kraj = txtKraj.Text;
             zawodnik.DataUr = dtpDataUr.Value;
             zawodnik.Waga = Convert.ToInt32(numWaga.Value);
             zawodnik.Wzrost = Convert.ToInt32(numWzrost.Value);
-
-            mz.Edytuj(zawodnik);
-            mz.Zapisz();
-
-            frmZawodnicy.Odswiez(mz.WczytaniZawodnicy);
         }
     }
 }
