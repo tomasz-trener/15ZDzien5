@@ -41,6 +41,7 @@
             this.numWzrost = new System.Windows.Forms.NumericUpDown();
             this.numWaga = new System.Windows.Forms.NumericUpDown();
             this.btnZapisz = new System.Windows.Forms.Button();
+            this.btnUsun = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numWzrost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             this.SuspendLayout();
@@ -163,11 +164,23 @@
             this.btnZapisz.UseVisualStyleBackColor = true;
             this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
+            // btnUsun
+            // 
+            this.btnUsun.Location = new System.Drawing.Point(11, 277);
+            this.btnUsun.Name = "btnUsun";
+            this.btnUsun.Size = new System.Drawing.Size(75, 23);
+            this.btnUsun.TabIndex = 16;
+            this.btnUsun.Text = "Usuń";
+            this.btnUsun.UseVisualStyleBackColor = true;
+            this.btnUsun.Visible = false;
+            this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
+            // 
             // FrmSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(190, 312);
+            this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.numWaga);
             this.Controls.Add(this.numWzrost);
@@ -205,5 +218,6 @@
         private System.Windows.Forms.NumericUpDown numWzrost;
         private System.Windows.Forms.NumericUpDown numWaga;
         private System.Windows.Forms.Button btnZapisz;
+        private System.Windows.Forms.Button btnUsun;
     }
 }

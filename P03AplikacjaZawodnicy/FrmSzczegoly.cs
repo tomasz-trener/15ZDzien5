@@ -40,6 +40,7 @@ namespace P03AplikacjaZawodnicy
             dtpDataUr.Value = zawodnik.DataUr;
             numWaga.Value = zawodnik.Waga;
             numWzrost.Value = zawodnik.Wzrost;
+            btnUsun.Visible = true;
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)
@@ -72,6 +73,20 @@ namespace P03AplikacjaZawodnicy
             zawodnik.DataUr = dtpDataUr.Value;
             zawodnik.Waga = Convert.ToInt32(numWaga.Value);
             zawodnik.Wzrost = Convert.ToInt32(numWzrost.Value);
+        }
+
+        private void btnUsun_Click(object sender, EventArgs e)
+        {
+            DialogResult dr =
+                MessageBox.Show("Czy napewno chcesz usunać zawodnika?", "Usuwanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                mz.Usun(zawodnik);
+                mz.Zapisz();
+                frmZawodnicy.Odswiez(mz.WczytaniZawodnicy);
+                Close();
+            }
         }
     }
 }

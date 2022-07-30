@@ -77,6 +77,20 @@ namespace P03AplikacjaZawodnicy
                     wszyscyZawodnicy[i] = z;
         }
 
+        internal void Usun(Zawodnik zawodnik)
+        {
+            List<Zawodnik> wszyscyZawodniyLista = wszyscyZawodnicy.ToList();
+            wszyscyZawodniyLista.Remove(zawodnik);
+            wszyscyZawodnicy = wszyscyZawodniyLista.ToArray();
+
+            if (zawodnik.Kraj.ToLower() == kraj.ToLower())
+            {
+                List<Zawodnik> wczytaniZawodnicyLista = wczytaniZawodnicy.ToList();
+                wczytaniZawodnicyLista.Remove(zawodnik);
+                wczytaniZawodnicy = wczytaniZawodnicyLista.ToArray();
+            }
+        }
+
         public void Zapisz()
         {
             string plik = "id_zawodnika;id_trenera;imie;nazwisko;kraj;data urodzenia;wzrost;waga" + Environment.NewLine;
