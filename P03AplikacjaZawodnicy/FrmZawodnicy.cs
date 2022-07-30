@@ -57,5 +57,21 @@ namespace P03AplikacjaZawodnicy
             FrmSzczegoly fs = new FrmSzczegoly(mz, this);
             fs.Show();
         }
+
+        private void rbKolumna_Click(object sender, EventArgs e)
+        {
+            Sortowanie s;
+            if (rbImie.Checked)
+                s = Sortowanie.Imie;
+            else if (rbNazwisko.Checked)
+                s = Sortowanie.Nazwisko;
+            else if (rbWzrost.Checked)
+                s = Sortowanie.Wzrost;
+            else
+                throw new Exception("Nieznany kierunek sortowania");
+
+            mz.Sortuj(s);
+            Odswiez(mz.WczytaniZawodnicy);
+        }
     }
 }

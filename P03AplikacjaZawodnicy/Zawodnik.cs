@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P03AplikacjaZawodnicy
 {
-    public class Zawodnik
+    public class Zawodnik : IComparable
     {
         //id_zawodnika;id_trenera;imie;nazwisko;kraj;data urodzenia;wzrost;waga
 
@@ -49,6 +49,13 @@ namespace P03AplikacjaZawodnicy
             DataUr = Convert.ToDateTime(komorki[5]);
             Wzrost = Convert.ToInt32(komorki[6]);
             Waga = Convert.ToInt32(komorki[7]);
+        }
+
+        public int CompareTo(object obj)
+        {
+            Zawodnik z = (Zawodnik)obj;
+
+            return Wzrost - z.Wzrost;
         }
     }
 }

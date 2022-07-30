@@ -66,6 +66,12 @@ namespace P03AplikacjaZawodnicy
             }
         }
 
+        internal void Sortuj(Sortowanie s)
+        {
+            Array.Sort(wczytaniZawodnicy);
+            Array.Sort(wszyscyZawodnicy);
+        }
+
         public void Edytuj(Zawodnik z)
         {
             for (int i = 0; i < wczytaniZawodnicy.Length; i++)

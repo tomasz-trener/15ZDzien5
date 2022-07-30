@@ -36,6 +36,10 @@
             this.txtKraj = new System.Windows.Forms.TextBox();
             this.btnSzczegoly = new System.Windows.Forms.Button();
             this.btnNowy = new System.Windows.Forms.Button();
+            this.rbImie = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbNazwisko = new System.Windows.Forms.RadioButton();
+            this.rbWzrost = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // lbDane
@@ -111,11 +115,60 @@
             this.btnNowy.UseVisualStyleBackColor = true;
             this.btnNowy.Click += new System.EventHandler(this.btnNowy_Click);
             // 
+            // rbImie
+            // 
+            this.rbImie.AutoSize = true;
+            this.rbImie.Location = new System.Drawing.Point(297, 222);
+            this.rbImie.Name = "rbImie";
+            this.rbImie.Size = new System.Drawing.Size(44, 17);
+            this.rbImie.TabIndex = 8;
+            this.rbImie.TabStop = true;
+            this.rbImie.Text = "Imie";
+            this.rbImie.UseVisualStyleBackColor = true;
+            this.rbImie.Click += new System.EventHandler(this.rbKolumna_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(298, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Sortuj";
+            // 
+            // rbNazwisko
+            // 
+            this.rbNazwisko.AutoSize = true;
+            this.rbNazwisko.Location = new System.Drawing.Point(297, 245);
+            this.rbNazwisko.Name = "rbNazwisko";
+            this.rbNazwisko.Size = new System.Drawing.Size(71, 17);
+            this.rbNazwisko.TabIndex = 10;
+            this.rbNazwisko.TabStop = true;
+            this.rbNazwisko.Text = "Nazwisko";
+            this.rbNazwisko.UseVisualStyleBackColor = true;
+            this.rbNazwisko.Click += new System.EventHandler(this.rbKolumna_Click);
+            // 
+            // rbWzrost
+            // 
+            this.rbWzrost.AutoSize = true;
+            this.rbWzrost.Location = new System.Drawing.Point(297, 268);
+            this.rbWzrost.Name = "rbWzrost";
+            this.rbWzrost.Size = new System.Drawing.Size(58, 17);
+            this.rbWzrost.TabIndex = 11;
+            this.rbWzrost.TabStop = true;
+            this.rbWzrost.Text = "Wzrost";
+            this.rbWzrost.UseVisualStyleBackColor = true;
+            this.rbWzrost.Click += new System.EventHandler(this.rbKolumna_Click);
+            // 
             // FrmZawodnicy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 397);
+            this.ClientSize = new System.Drawing.Size(389, 397);
+            this.Controls.Add(this.rbWzrost);
+            this.Controls.Add(this.rbNazwisko);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.rbImie);
             this.Controls.Add(this.btnNowy);
             this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.txtKraj);
@@ -141,6 +194,10 @@
         private System.Windows.Forms.TextBox txtKraj;
         private System.Windows.Forms.Button btnSzczegoly;
         private System.Windows.Forms.Button btnNowy;
+        private System.Windows.Forms.RadioButton rbImie;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbNazwisko;
+        private System.Windows.Forms.RadioButton rbWzrost;
     }
 }
 
