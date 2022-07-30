@@ -15,7 +15,7 @@ namespace P02KomunikacjaPomiedzyFormularzami
         private FrmSzczegoly fs;
 
         // skrótowy sposób tworzenia GET
-        public TextBox TxtDane => this.txtDane;
+        public TextBox TxtDane => this.txtDane; // this opcjonalne
 
         public FrmStartowy()
         {
@@ -24,7 +24,8 @@ namespace P02KomunikacjaPomiedzyFormularzami
 
         private void btnSzczegoly_Click(object sender, EventArgs e)
         {
-            fs = new FrmSzczegoly(this);
+            FrmStartowy refrencjaDoSamegoSiebie = this;
+            fs = new FrmSzczegoly(refrencjaDoSamegoSiebie);
             fs.Show();
         }
 
