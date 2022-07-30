@@ -13,6 +13,9 @@ namespace P03AplikacjaZawodnicy
         private Zawodnik[] wczytaniZawodnicy;
         private Zawodnik[] wszyscyZawodnicy;
         private string sciezka;
+        private Sortowanie kierunekSortowania;
+
+        public Sortowanie KierunekSortowania => kierunekSortowania;
 
         public Zawodnik[] WczytaniZawodnicy => wczytaniZawodnicy;
 
@@ -32,7 +35,7 @@ namespace P03AplikacjaZawodnicy
             {
                 string[] komorki = wiersze[i].Split(';');
 
-                Zawodnik z = new Zawodnik(komorki);
+                Zawodnik z = new Zawodnik(komorki, this);
                 //z.Id_zawodnika = Convert.ToInt32(komorki[0]);
                 //z.Id_trenera = Convert.ToInt32(komorki[1]);
                 //z.Imie = komorki[2];
@@ -68,6 +71,7 @@ namespace P03AplikacjaZawodnicy
 
         internal void Sortuj(Sortowanie s)
         {
+            kierunekSortowania = s;
             Array.Sort(wczytaniZawodnicy);
             Array.Sort(wszyscyZawodnicy);
         }

@@ -18,6 +18,7 @@ namespace P03AplikacjaZawodnicy
         public DateTime DataUr;
         public int Wzrost;
         public int Waga;
+        private ManagerZawodnikow mz;
 
         public string WidoczneDane
         {
@@ -39,8 +40,9 @@ namespace P03AplikacjaZawodnicy
         {
         }
 
-        public Zawodnik(string[] komorki)
+        public Zawodnik(string[] komorki, ManagerZawodnikow mz)
         {
+            this.mz = mz;
             Id_zawodnika = Convert.ToInt32(komorki[0]);
             Id_trenera = Convert.ToInt32(komorki[1]);
             Imie = komorki[2];
@@ -55,7 +57,14 @@ namespace P03AplikacjaZawodnicy
         {
             Zawodnik z = (Zawodnik)obj;
 
-            return Wzrost - z.Wzrost;
+            if (mz.KierunekSortowania == Sortowanie.Nazwisko)
+                return string.Compare(Nazwisko, z.Nazwisko);
+            else if (mz.KierunekSortowania == Sortowanie.Imie)
+                return string.Compare(Imie, z.Imie);
+            else if (mz.KierunekSortowania == Sortowanie.Wzrost)
+                return Wzrost - z.Wzrost;
+
+            throw new Exception("Nieznany kierunek sortowania");
         }
     }
 }

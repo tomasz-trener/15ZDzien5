@@ -73,5 +73,10 @@ namespace P03AplikacjaZawodnicy
             mz.Sortuj(s);
             Odswiez(mz.WczytaniZawodnicy);
         }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            mz.Zapisz();
+        }
     }
 }

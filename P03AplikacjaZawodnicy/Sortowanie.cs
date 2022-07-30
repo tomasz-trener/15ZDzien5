@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P03AplikacjaZawodnicy
 {
-    internal enum Sortowanie
+    public enum Sortowanie
     {
         Imie,
         Nazwisko,
